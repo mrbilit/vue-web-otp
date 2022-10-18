@@ -75,6 +75,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+* {
+  box-sizing: border-box;
+}
 .root {
   margin-block: auto;
   display: flex;
@@ -82,9 +85,11 @@ export default Vue.extend({
   align-items: center;
   justify-content: center;
   height: 100vh;
+  padding: 20px;
   .box {
     max-width: 800px;
-    margin-block: auto;
+    width: 100%;
+    margin-inline: auto;
     background-color: #f26844;
     border-radius: 20px;
     padding: 16px;
@@ -101,7 +106,8 @@ export default Vue.extend({
       text-align: center;
       outline: transparent;
       transition: border-color calc(var(--transition, 0.2) * 1s) ease;
-      width: 500px;
+      max-width: 500px;
+      width: 100%;
 
       &:valid {
         --accent: hsla(100, 100%, 50%, 1);
@@ -172,6 +178,7 @@ export default Vue.extend({
     p {
       font-size: 1rem;
       font-family: "Segoe UI", system-ui, sans-serif;
+      text-align: center;
     }
   }
 }
