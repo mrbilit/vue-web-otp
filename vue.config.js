@@ -4,6 +4,7 @@ const path = require("path");
 module.exports = {
   outputDir: "lib",
   runtimeCompiler: true,
+  publicPath: process.env.NODE_ENV === "production" ? "/vue-web-otp/" : "/",
   configureWebpack: {
     resolve: {
       alias: {

@@ -23,7 +23,8 @@
     "serve": "vue-cli-service serve",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "build": "vue-cli-service build --target lib --name v-date-time-picker src/build.js --mode production"
+    "build": "vue-cli-service build --target lib --name vue-web-otp src/build.js --mode production",
+    "gh-build": "vue-cli-service build --target app --dest dist --name vue-web-otp src/main.ts"
   },
   "types": "src/types.d.ts",
   "main": "lib/vue-web-otp.umd.min.js",
