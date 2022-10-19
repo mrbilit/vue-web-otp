@@ -42,4 +42,7 @@ export default Vue.extend({
         });
     }
   },
+  beforeDestroy() {
+    this.abort();
+  },
 });
