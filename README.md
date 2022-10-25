@@ -30,7 +30,7 @@ Import component and use it!
 
 ```javascript
 import Vue from 'vue';
-import VueWebOtp from 'vue-web-otp';
+import { VueWebOtp } from 'vue-web-otp';
 
 export default Vue.extend({
   components: { VueWebOtp },
