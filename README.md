@@ -92,6 +92,6 @@ yarn test:unit
 yarn lint
 ```
 
-### Customize configuration
+### Contributions
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Feel free to fix bugs and suggest new features via PRs.
