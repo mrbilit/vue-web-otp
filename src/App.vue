@@ -1,14 +1,38 @@
+<script setup lang="ts">
+import VueWebOtp from "@components/VueWebOtp";
+import { ref, watch } from "vue";
+
+const input = ref<string>("");
+const copied = ref<boolean>(false);
+
+watch(input, (val) => {
+  console.log("Value of input changed:", val);
+});
+
+const copy = async () => {
+  await navigator.clipboard.writeText(
+    "Code: 123456\n\n@mrbilit.github.io #123456"
+  );
+  copied.value = true;
+  window.setTimeout(() => (copied.value = false), 1000);
+};
+
+const keypress = (abort: () => void | undefined) => {
+  abort();
+};
+</script>
+
 <template>
   <div class="root">
     <div class="box">
-      <vue-web-otp ref="webOtp" @input="input = $event">
-        <template #default="{ autocomplete }">
+      <vue-web-otp @input="input = $event">
+        <template #default="{ autocomplete, abort }">
           <input
             v-model="input"
             placeholder="Enter the received code here"
             :autocomplete="autocomplete"
             type="number"
-            @keypress="keypress"
+            @keypress="keypress.bind(abort)"
           />
         </template>
       </vue-web-otp>
@@ -40,39 +64,6 @@
     </div>
   </div>
 </template>
-<script lang="ts">
-import VueWebOtp from "@/components/vue-web-otp";
-import Vue from "vue";
-
-export default Vue.extend({
-  name: "App",
-  components: { VueWebOtp },
-  data() {
-    return {
-      input: "",
-      copied: false,
-    };
-  },
-  watch: {
-    input(val: string) {
-      console.log("Value of input changed:", val);
-    },
-  },
-  methods: {
-    keypress() {
-      // aborting waiting signal if the user tried to enter code manually (Can be submission of a form instead)
-      this.$refs.webOtp.abort();
-    },
-    async copy() {
-      await navigator.clipboard.writeText(
-        "Code: 123456\n\n@mrbilit.github.io #123456"
-      );
-      this.copied = true;
-      window.setTimeout(() => (this.copied = false), 1000);
-    },
-  },
-});
-</script>
 
 <style lang="scss" scoped>
 * {

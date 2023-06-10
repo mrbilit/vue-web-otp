@@ -1,97 +1,18 @@
-# vue-web-otp
+# Vue 3 + TypeScript + Vite
 
-> Verify phone numbers on the vue web applications
+This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-## Overview
+## Recommended IDE Setup
 
-This library is a wrapper around WebOTP API for Vue web applications.
-The WebOTP API lets your app receive specially-formatted messages bound to your app's domain.
-From this,
-you can programmatically obtain an OTP from an SMS message and verify a phone number for the user more easily.
-Full WebOTP API documentation [Here](https://web.dev/web-otp/).
+- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-> There is a [**DEMO**](https://mrbilit.github.io/vue-web-otp/) available.
+## Type Support For `.vue` Imports in TS
 
-## Install and usage
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-Install using npm
+If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
-```
-npm install --save vue-web-otp
-```
-
-or Yarn
-
-```
-yarn add vue-web-otp
-```
-
-Import component and use it!
-
-```javascript
-import Vue from 'vue';
-import { VueWebOtp } from 'vue-web-otp';
-
-export default Vue.extend({
-  components: { VueWebOtp },
-  // ...other parts of vue application
-});
-```
-
-Example of usage in App.vue or any other Vue component:
-
-```html
-<vue-web-otp ref="webOtp" @input="otpInput = $event">
-  <template #default="{ autocomplete }">
-    <input
-      v-model="otpInput"
-      :autocomplete="autocomplete"
-    />
-  </template>
-</vue-web-otp>
-```
-
-Note that this setup waits for the formatted message to fill the input.
-However, sometimes you may want to abort the listener (for example, if the user entered the code manually).
-For this, you can call the `abort` method available on the component, like this:
-```javascript
-methods: {
-  stopWaiting() {
-    this.$refs.webOtp.abort();
-  }
-}
-```
-
-## Project setup
-
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-
-```
-yarn build
-```
-
-### Run your unit tests
-
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-
-```
-yarn lint
-```
-
-### Contributions
-
-Feel free to fix bugs and suggest new features via PRs.
+1. Disable the built-in TypeScript Extension
+   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
