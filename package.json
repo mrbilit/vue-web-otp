@@ -1,7 +1,16 @@
 {
-  "name": "@mrbilit/vue-web-otp",
+  "name": "vue-web-otp",
   "version": "1.0.0",
   "description": "Verify phone numbers on the vue web applications",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "vue",
+    "otp",
+    "sms",
+    "one time password"
+  ],
+  "repository": "https://github.com/mrbilit/vue-web-otp",
   "type": "module",
   "main": "./dist/vue-web-otp.umd.cjs",
   "module": "./dist/vue-web-otp.js",
