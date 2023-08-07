@@ -2,6 +2,10 @@
   "name": "vue-web-otp",
   "version": "1.0.0",
   "description": "Verify phone numbers on the vue web applications",
+  "author": {
+    "name": "Mohamadhassan Ebrahimi",
+    "email": "emohamadhassan@gmail.com"
+  },
   "license": "MIT",
   "private": false,
   "keywords": [

@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import { onBeforeUnmount, onMounted, ref } from "vue";
-import { IVueWebOtpEmits } from "./VueWebOtp.interface";
+import {onBeforeUnmount, onMounted, ref} from "vue";
 
-const emits = defineEmits<IVueWebOtpEmits>();
+const emits = defineEmits<{
+  (e: "input", code: string): void;
+}>();
 
 const abortController = ref<AbortController | null>(null);
 const abort = () => abortController.value?.abort();
@@ -28,10 +29,12 @@ onMounted(() => {
 onBeforeUnmount(() => {
   abort();
 });
+
+defineExpose({
+  abort,
+});
 </script>
 
 <template>
-  <slot name="default" autocomplete="one-time-code" :abort="abort"></slot>
+  <slot name="default" autocomplete="one-time-code" />
 </template>
-
-<style lang="scss" scoped></style>

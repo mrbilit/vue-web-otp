@@ -4,6 +4,7 @@ import { ref, watch } from "vue";
 
 const input = ref<string>("");
 const copied = ref<boolean>(false);
+const webOtp = ref<InstanceType<typeof VueWebOtp> | null>(null);
 
 watch(input, (val) => {
   console.log("Value of input changed:", val);
@@ -17,22 +18,22 @@ const copy = async () => {
   window.setTimeout(() => (copied.value = false), 1000);
 };
 
-const keypress = (abort: () => void | undefined) => {
-  abort();
+const keypress = () => {
+  webOtp.value?.abort();
 };
 </script>
 
 <template>
   <div class="root">
     <div class="box">
-      <vue-web-otp @input="input = $event">
-        <template #default="{ autocomplete, abort }">
+      <vue-web-otp ref="webOtp" @input="input = $event">
+        <template #default="{ autocomplete }">
           <input
             v-model="input"
             placeholder="Enter the received code here"
             :autocomplete="autocomplete"
             type="number"
-            @keypress="keypress.bind(abort)"
+            @keypress="keypress"
           />
         </template>
       </vue-web-otp>
