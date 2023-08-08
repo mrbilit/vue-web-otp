@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import VueWebOtp from "@components/VueWebOtp";
+import VueWebOtp from "./components/VueWebOtp";
 import { ref, watch } from "vue";
 
 const input = ref<string>("");
