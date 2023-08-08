@@ -14,7 +14,7 @@ Full WebOTP API documentation [Here](https://web.dev/web-otp/).
 
 ## Install and usage
 
-> To use it inside a vue 2 project, checkout `vue-2` branch.
+> To use it inside a vue 2 project, checkout [**vue-2**](https://github.com/mrbilit/vue-web-otp/tree/vue-2) branch.
 
 Install using npm
 
