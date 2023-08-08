@@ -5,6 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import rollupTsconfigPaths from "rollup-plugin-tsconfig-paths";
 
 export default defineConfig({
+  base: '/vue-web-otp/',
   plugins: [tsconfigPaths(), vue()],
   build: {
     lib: {
