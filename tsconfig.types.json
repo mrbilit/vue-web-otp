@@ -6,7 +6,8 @@
     },
     "types": ["vite/client"],
     "allowJs": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "lib": ["es2015", "DOM"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.interface.ts"],
   "exclude": ["dist", "node_modules", "**/*.cy.ts", "**/*.spec.ts", "**/__tests__/**/*"]
