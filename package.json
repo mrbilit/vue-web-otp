@@ -34,7 +34,8 @@
     "dev": "vite",
     "build": "vue-tsc && vite build && npm run build:types",
     "build:types": "vue-tsc --project tsconfig.types.json --declaration --emitDeclarationOnly --outDir dist/types ",
-    "preview": "vite preview"
+    "build:web": "vite build --config vite.web.config.js",
+    "preview": "vite preview --config vite.web.config.js"
   },
   "peerDependencies": {
     "vue": "^3.2.47"
