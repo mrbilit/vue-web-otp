@@ -17,13 +17,13 @@ Full WebOTP API documentation [Here](https://web.dev/web-otp/).
 Install using npm
 
 ```
-npm install --save vue-web-otp
+npm install --save vue-web-otp@vue-2
 ```
 
 or Yarn
 
 ```
-yarn add vue-web-otp
+yarn add vue-web-otp@vue-2
 ```
 
 Import component and use it!
