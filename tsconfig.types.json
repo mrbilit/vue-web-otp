@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@*": ["./src/*"]
+    },
+    "types": ["vite/client"],
+    "allowJs": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.interface.ts"],
+  "exclude": ["dist", "node_modules", "**/*.cy.ts", "**/*.spec.ts", "**/__tests__/**/*"]
+}

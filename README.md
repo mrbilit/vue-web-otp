@@ -14,6 +14,8 @@ Full WebOTP API documentation [Here](https://web.dev/web-otp/).
 
 ## Install and usage
 
+> To use it inside a vue 2 project, checkout `vue-2` branch.
+
 Install using npm
 
 ```
@@ -28,14 +30,13 @@ yarn add vue-web-otp
 
 Import component and use it!
 
-```javascript
-import Vue from 'vue';
+```vue
+<script setup lang="ts">
 import { VueWebOtp } from 'vue-web-otp';
+import { ref } from 'vue';
 
-export default Vue.extend({
-  components: { VueWebOtp },
-  // ...other parts of vue application
-});
+const webOtp = ref<InstanceType<typeof VueWebOtp> | null>(null);
+</script>
 ```
 
 Example of usage in App.vue or any other Vue component:
@@ -54,24 +55,22 @@ Example of usage in App.vue or any other Vue component:
 Note that this setup waits for the formatted message to fill the input.
 However, sometimes you may want to abort the listener (for example, if the user entered the code manually).
 For this, you can call the `abort` method available on the component, like this:
-```javascript
-methods: {
-  stopWaiting() {
-    this.$refs.webOtp.abort();
-  }
+```typescript
+function stopWaiting() {
+  webOtp?.abort();
 }
 ```
 
 ## Project setup
 
 ```
-yarn install
+yarn
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-yarn serve
+yarn dev
 ```
 
 ### Compiles and minifies for production
@@ -80,16 +79,10 @@ yarn serve
 yarn build
 ```
 
-### Run your unit tests
+### Preview production built project in browser
 
 ```
-yarn test:unit
-```
-
-### Lints and fixes files
-
-```
-yarn lint
+yarn preview
 ```
 
 ### Contributions
